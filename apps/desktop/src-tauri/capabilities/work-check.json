@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "work-check",
+  "description": "Minimal permissions for the Tempo confirmation window",
+  "windows": ["work-check"],
+  "permissions": ["core:event:default", "core:window:allow-close"]
+}

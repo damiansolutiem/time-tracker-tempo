@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+/* Semantic product tokens. Feature code consumes roles, never raw palette values. */
+:root,
+:root[data-theme='light'] {
+  --background: oklch(0.975 0.006 115);
+  --foreground: oklch(0.23 0.018 115);
+  --surface: oklch(0.995 0.003 115);
+  --surface-foreground: var(--foreground);
+  --surface-muted: oklch(0.945 0.012 115);
+  --surface-muted-foreground: oklch(0.52 0.025 115);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.56 0.145 145);
+  --primary-foreground: oklch(0.99 0.005 145);
+  --primary-container: oklch(0.91 0.07 145);
+  --primary-container-foreground: oklch(0.31 0.085 145);
+  --secondary: oklch(0.91 0.022 85);
+  --secondary-foreground: oklch(0.32 0.03 85);
+  --border: oklch(0.89 0.015 115);
+  --input: oklch(0.92 0.012 115);
+  --ring: oklch(0.63 0.13 145);
+  --success: oklch(0.58 0.15 145);
+  --success-container: oklch(0.92 0.07 145);
+  --warning: oklch(0.69 0.15 75);
+  --warning-container: oklch(0.94 0.07 75);
+  --danger: oklch(0.58 0.2 27);
+  --danger-container: oklch(0.93 0.06 27);
+  --info: oklch(0.59 0.15 245);
+  --info-container: oklch(0.93 0.05 245);
+  --shadow: 0 1px 2px oklch(0.2 0.02 115 / 0.04), 0 12px 32px oklch(0.2 0.02 115 / 0.06);
+}
+
+:root[data-theme='dark'] {
+  --background: oklch(0.17 0.014 115);
+  --foreground: oklch(0.93 0.012 115);
+  --surface: oklch(0.205 0.016 115);
+  --surface-foreground: var(--foreground);
+  --surface-muted: oklch(0.25 0.018 115);
+  --surface-muted-foreground: oklch(0.7 0.02 115);
+  --card: oklch(0.225 0.017 115);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.235 0.018 115);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.7 0.15 145);
+  --primary-foreground: oklch(0.18 0.035 145);
+  --primary-container: oklch(0.32 0.08 145);
+  --primary-container-foreground: oklch(0.88 0.08 145);
+  --secondary: oklch(0.3 0.028 85);
+  --secondary-foreground: oklch(0.9 0.025 85);
+  --border: oklch(0.31 0.018 115);
+  --input: oklch(0.28 0.018 115);
+  --ring: oklch(0.7 0.14 145);
+  --success: oklch(0.7 0.15 145);
+  --success-container: oklch(0.3 0.075 145);
+  --warning: oklch(0.78 0.14 75);
+  --warning-container: oklch(0.32 0.065 75);
+  --danger: oklch(0.7 0.18 27);
+  --danger-container: oklch(0.32 0.08 27);
+  --info: oklch(0.72 0.13 245);
+  --info-container: oklch(0.3 0.07 245);
+  --shadow: 0 1px 2px oklch(0 0 0 / 0.2), 0 16px 40px oklch(0 0 0 / 0.22);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-muted-foreground: var(--surface-muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-container: var(--primary-container);
+  --color-primary-container-foreground: var(--primary-container-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-container: var(--success-container);
+  --color-warning: var(--warning);
+  --color-warning-container: var(--warning-container);
+  --color-danger: var(--danger);
+  --color-danger-container: var(--danger-container);
+  --color-info: var(--info);
+  --color-info-container: var(--info-container);
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--background);
+  }
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 880px;
+    min-height: 620px;
+    overflow: hidden;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body.work-check-window {
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+  }
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  body.work-check-window #root {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+  button,
+  select {
+    font: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  button:focus-visible,
+  select:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
